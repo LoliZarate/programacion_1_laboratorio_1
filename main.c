@@ -1,23 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int suma(int, int); //prototipo declaracion
 int main()
 {
-    int nro1, nro2, result;
-    printf("Ingrese 1er operando: ");
-    scanf("%d", &nro1);
-    printf("\n Ingrese 2do operando: ");
-    scanf("%d", &nro2);
-    result=suma(nro1, nro2);//llamada
-    system("cls");
-    printf("Resultado: %d", result);
-    return 0;
-}//no da error ya que la firma esta al principio del algoritmo
+    int opcion;
+    float op1=0, op2=0
+    do{
+        printf("Menu");
+        printf("\n\n1. Ingresar 1er operando (A=%.0f)", op1);
+        printf("\n2. Ingresar 2do operando (B=%.0f)", op2);
 
-int suma(int op1, int op2)
-{
-    int resultado;
-    resultado= op1+op2;
-    return resultado;
+        printf("\n\n Seleccione opcion: ");
+        scanf("%d", &opcion);
+    }
+    switch(opcion){
+
+          case 1:
+               -
+               break;
+          case 2:
+               -
+               break;
+          case 3:
+               -
+               break;
+          case 4:
+               -
+               break;
+          case 5:
+               -
+               break;
+          default:
+               -
+    }
+ while (opcion!=5);
+  return 0;
 }
+
