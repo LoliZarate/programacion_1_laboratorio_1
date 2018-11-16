@@ -1,0 +1,71 @@
+#include <IRremote.h>
+int ledR = 5;
+int ledB = 3;
+int ledG = 2;
+int irPin = 10;
+IRrecv irrecv(irPin);
+
+decode_results codigo;
+
+void setup()
+{
+  Serial.begin(9600);  
+  irrecv.enableIRIn();  
+  pinMode(ledR, OUTPUT);
+  pinMode(ledB, OUTPUT);
+  pinMode(ledG, OUTPUT);
+}
+
+void loop()
+{
+  if(irrecv.decode(&codigo)){
+    Serial.println(codigo.value, HEX);
+    irrecv.resume();  
+  }
+  
+  switch(codigo.value){
+    case 0xFFA25D:
+    
+      digitalWrite(ledR, !digitalRead(ledR));
+     // digitalWrite(ledB, LOW);
+     //   digitalWrite(ledG, LOW);
+      break;
+        
+    case 0xFD28D7:
+    
+      digitalWrite(ledR, LOW);
+      
+      break;
+    case 0xFD8877:
+    
+      digitalWrite(ledR, LOW);
+      digitalWrite(ledB, HIGH);
+        digitalWrite(ledG, LOW);
+      break;
+    case 0xFDA857:
+    
+      
+      digitalWrite(ledB, LOW);
+        
+      break;
+    case 0xFD48b7:
+    
+      digitalWrite(ledR, LOW);
+      digitalWrite(ledB, LOW);
+        digitalWrite(ledG, HIGH);
+      break;
+    case 0xFD6897:
+    
+      
+        digitalWrite(ledG, LOW);
+      break;        
+
+  }  
+
+  
+  
+  codigo.value = 0; 
+  
+  
+  delay(100); 
+}
